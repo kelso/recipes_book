@@ -1,0 +1,14 @@
+<h1>Recepty</h1>
+
+<% @recipes.each do |recipe| %>
+  <p>
+    <strong><%= recipe.name %></strong>
+    
+    <br>
+    Ingrediencie:
+    <%= recipe.ingredients.map{|i| i.name}.join(", ") %>
+
+    <br>
+    <%= link_to "Upraviť recept", edit_recipe_path(recipe) %>
+  </p>
+<% end %>

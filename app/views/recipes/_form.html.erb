@@ -1,0 +1,16 @@
+<%= nested_form_for @recipe do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <h4>Ingrediencie</h4>
+  
+  <%= f.fields_for :ingredients do |ingredient| %>
+    <%= ingredient.text_field :name %>
+    <%= ingredient.link_to_remove "Odstranit ingredienciu" %>
+    <br>
+  <% end %>
+  <%= f.link_to_add "Pridat ingredienciu", :ingredients %>
+
+  <p><%= f.submit %></p>
+<% end %>
